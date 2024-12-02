@@ -1,0 +1,73 @@
+﻿@model AIImage
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1 class="display4-AI">UPLOAD AI IMAGE</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <!-- Prompt Field -->
+            <div class="form-group">
+                <label asp-for="Prompt" class="control-label"></label>
+                <textarea asp-for="Prompt" class="form-control" rows="5"></textarea>
+                <span asp-validation-for="Prompt" class="text-danger"></span>
+            </div>
+
+            <!-- Image Generator Field -->
+            <div class="form-group">
+                <label asp-for="ImageGenerator" class="control-label"></label>
+                <input asp-for="ImageGenerator" class="form-control" />
+                <span asp-validation-for="ImageGenerator" class="text-danger"></span>
+            </div>
+
+            <!-- Upload Date Field -->
+            <div class="form-group">
+                <label asp-for="UploadDate" class="control-label"></label>
+                <input asp-for="UploadDate" class="form-control" readonly />
+                <span asp-validation-for="UploadDate" class="text-danger"></span>
+            </div>
+
+            <!-- Filename Field -->
+            <div class="form-group">
+                <label asp-for="Filename" class="control-label"></label>
+                <input asp-for="Filename" class="form-control" />
+                <span asp-validation-for="Filename" class="text-danger"></span>
+            </div>
+
+            <!-- Like Field -->
+            <div class="form-group">
+                <label asp-for="Like" class="control-label"></label>
+                <input asp-for="Like" class="form-control" readonly />
+                <span class="text-danger"></span>
+            </div>
+
+            <!-- File Upload Field -->
+            <div class="form-group">
+                <label for="UploadedFile" class="control-label">Upload File</label>
+                <input type="file" class="form-control" id="UploadedFile" asp-for="UploadedFile" />
+                <span asp-validation-for="UploadedFile" class="text-danger"></span>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

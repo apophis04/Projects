@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"src.com.apophis.shop","l":"Customer"},{"p":"src.com.apophis.shop","l":"Server"},{"p":"src.com.apophis.shop","l":"Shop"},{"p":"src.com.apophis.shop","l":"ShopSimulation"}];updateSearchResults();
