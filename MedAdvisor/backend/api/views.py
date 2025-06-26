@@ -10,7 +10,7 @@ from rest_framework import generics
 from django.core.mail import send_mail
 from django.conf import settings
 from rest_framework import status
-# ========================================================================================
+# ====================================
 from django.http import JsonResponse
 import joblib
 import pandas as pd
@@ -59,7 +59,10 @@ def user_details(request):
     serializer = UserSerializer(user)
     return Response(serializer.data)
 
-model = joblib.load('D:\\GitHub\\MedAdvisor\\ML_model\\ml_model_for_depression_prediction.joblib')
+def get_model():
+    model_path = str(settings.BASE_DIR / "ML_model/ml_model_for_depression_prediction.ipynb")
+    return joblib.load(model)
+    
 imputer = SimpleImputer(strategy='mean')
 scaler = StandardScaler()
 import numpy as np
